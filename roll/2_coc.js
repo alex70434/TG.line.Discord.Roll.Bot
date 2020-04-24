@@ -387,30 +387,30 @@ async function coc7(chack, text) {
 	let temp = await rollbase.Dice(100);
 	if (temp > chack) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 失敗';
 	if (temp <= chack) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 通常成功';
-	if (temp <= chack / 2) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 困難成功,我可是努力了一把喔!';
-	if (temp <= chack / 5) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 極限成功,快誇誇我啊!';
-	if (temp == 1) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 恭喜！大成功！世界掌握在我的手中!!';
-	if (temp == 100) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 啊！大失敗！這...不能怪我對吧';
-	if (temp >= 96 && chack <= 49) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 啊！大失敗！這...不能怪我對吧';
+	if (temp <= chack / 2) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 困難成功';
+	if (temp <= chack / 5) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 極限成功';
+	if (temp == 1) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 恭喜！大成功！';
+	if (temp == 100) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 啊！大失敗！';
+	if (temp >= 96 && chack <= 49) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 啊！大失敗！';
 	if (text != null) rply.text += '：' + text;
 	return rply;
 }
 
 async function coc7chack(temp, chack, text) {
 	if (text == null) {
-		if (temp == 1) return temp + ' → 恭喜！大成功！世界掌握在我的手中!!';
-		if (temp == 100) return temp + ' → 啊！大失敗！這...不能怪我對吧';
-		if (temp >= 96 && chack <= 49) return temp + ' → 啊！大失敗！這...不能怪我對吧';
-		if (temp <= chack / 5) return temp + ' → 極限成功,快誇誇我啊!';
-		if (temp <= chack / 2) return temp + ' → 困難成功,我可是努力了一把喔!';
+		if (temp == 1) return temp + ' → 恭喜！大成功！';
+		if (temp == 100) return temp + ' → 啊！大失敗！';
+		if (temp >= 96 && chack <= 49) return temp + ' → 啊！大失敗！';
+		if (temp <= chack / 5) return temp + ' → 極限成功';
+		if (temp <= chack / 2) return temp + ' → 困難成功';
 		if (temp <= chack) return temp + ' → 通常成功';
 		else return temp + ' → 失敗';
 	} else {
-		if (temp == 1) return temp + ' → 恭喜！大成功！世界掌握在我的手中!!：' + text;
-		if (temp == 100) return temp + ' → 啊！大失敗！這...不能怪我對吧：' + text;
-		if (temp >= 96 && chack <= 49) return temp + ' → 啊！大失敗！這...不能怪我對吧：' + text;
-		if (temp <= chack / 5) return temp + ' → 極限成功,快誇誇我啊!：' + text;
-		if (temp <= chack / 2) return temp + ' → 困難成功,我可是努力了一把喔!：' + text;
+		if (temp == 1) return temp + ' → 恭喜！大成功！：' + text;
+		if (temp == 100) return temp + ' → 啊！大失敗！：' + text;
+		if (temp >= 96 && chack <= 49) return temp + ' → 啊！大失敗！：' + text;
+		if (temp <= chack / 5) return temp + ' → 極限成功：' + text;
+		if (temp <= chack / 2) return temp + ' → 困難成功：' + text;
 		if (temp <= chack) return temp + ' → 通常成功：' + text;
 		else return temp + ' → 失敗：' + text;
 	}
